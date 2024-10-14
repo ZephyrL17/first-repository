@@ -88,3 +88,6 @@ public final class Main extends JavaPlugin implements Listener {
     player.getInventory().setContents(itemStacks);
   }
 }
+
+
+//プルリクエストにおけるコメント追加の確認
