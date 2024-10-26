@@ -3,5 +3,6 @@ version: '1.0-SNAPSHOT'
 main: plugin.sample.Main
 api-version: '1.21'
 commands:
-  levelup:
-  levelchange:
+  SetLevel:
+  LevelChange:
+  AllSetLevel:

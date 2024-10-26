@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -32,8 +31,9 @@ public final class Main extends JavaPlugin implements Listener {
   @Override
   public void onEnable() {
     Bukkit.getPluginManager().registerEvents(this, this);
-    getCommand("levelup")       .setExecutor(new LevelUpCommand());
-    getCommand("levelchange")   .setExecutor(new LevelChangeCommand());
+    getCommand("SetLevel")   .setExecutor(new SetLevelCommand());
+    getCommand("LevelChange").setExecutor(new LevelChangeCommand());
+    getCommand("allSetLevel").setExecutor(new AllSetLevelCommand());
   }
 
   @EventHandler
