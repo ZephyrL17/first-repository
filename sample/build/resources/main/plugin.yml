@@ -6,3 +6,7 @@ commands:
   SetLevel:
   LevelChange:
   AllSetLevel:
+
+errorMessage:
+  - '実行できません。'
+  - 'Error'

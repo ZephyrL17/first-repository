@@ -11,7 +11,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.entity.Chicken;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,10 +35,25 @@ public final class Main extends JavaPlugin implements Listener {
 
   @Override
   public void onEnable() {
+    saveDefaultConfig();
+
     Bukkit.getPluginManager().registerEvents(this, this);
-    getCommand("SetLevel")   .setExecutor(new SetLevelCommand());
+    getCommand("SetLevel")   .setExecutor(new SetLevelCommand(this));
     getCommand("LevelChange").setExecutor(new LevelChangeCommand());
     getCommand("allSetLevel").setExecutor(new AllSetLevelCommand());
+  }
+
+  @EventHandler
+  public void onPlayerJoin(PlayerJoinEvent e) {
+    Player player = e.getPlayer();
+    World world = player.getWorld();
+    Location playerLocation = player.getLocation();
+
+    world.getBlockAt(
+        new Location(world,
+            playerLocation.getX() + 3,
+            playerLocation.getY(),
+            playerLocation.getZ())).setType(Material.DARK_OAK_WOOD);
   }
 
   @EventHandler
